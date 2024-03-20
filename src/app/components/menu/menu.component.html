@@ -1,0 +1,15 @@
+<section class="menu">
+  <app-window
+    *ngIf="infoWindowState"
+    [info]="windowInfo"
+    (hideInfo)="hideInfo($event)"
+  ></app-window>
+  <h1 class="menu-title">Меню</h1>
+  <div class="menu__wrapper">
+    <app-product
+      *ngFor="let item of menuItems"
+      [product]="item"
+      (showInfo)="showInfo($event)"
+    ></app-product>
+  </div>
+</section>

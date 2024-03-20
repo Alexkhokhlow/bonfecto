@@ -1,0 +1,7 @@
+<div class="product" (click)="onShowInfo()">
+  <app-swiper [images]="product.imageNames"></app-swiper>
+  <div class="product__info">
+    <p class="product__info__title">{{ product.title }}</p>
+    <p class="product__info__time">{{ product.cookingTime }}</p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<swiper
+  [autoplay]="{
+          delay: 1500,
+          disableOnInteraction: false,
+        }"
+  [slidesPerView]="1"
+  [pagination]="{ clickable: true }"
+>
+  <ng-template swiperSlide *ngFor="let name of images">
+    <img class="img" src="../../../../assets/img/{{ name }}.jpg" />
+  </ng-template>
+</swiper>

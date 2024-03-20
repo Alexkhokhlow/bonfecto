@@ -1,0 +1,12 @@
+<div class="window" (click)="hideInfo.emit($event)">
+  <div class="window__wrapper">
+    <app-swiper class="window-swiper" [images]="info.imageNames"></app-swiper>
+    <div class="window__container">
+      <h2 class="window-title">{{ info.title }}</h2>
+      <span class="window-description">
+        {{ info.description }}
+      </span>
+    </div>
+    <img class="window-closer" src="../../../../assets/icon/closer.svg" />
+  </div>
+</div>
