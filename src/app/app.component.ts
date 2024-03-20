@@ -16,12 +16,5 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  @ViewChild('menu') menu!: ElementRef;
-
   public title = 'bonfecto';
-
-  openMenu() {
-    console.log(this.menu);
-    console.log('dsa');
-  }
 }
