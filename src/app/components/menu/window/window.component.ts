@@ -12,5 +12,5 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 })
 export class WindowComponent {
   @Input() public info!: product;
-  @Output() public hideInfo: EventEmitter<Event> = new EventEmitter();
+  @Output() public hideInfo: EventEmitter<void> = new EventEmitter();
 }

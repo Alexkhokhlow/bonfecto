@@ -17,12 +17,7 @@ export class MenuComponent {
     this.infoWindowState = true;
   }
 
-  public hideInfo(event: Event) {
-    if (
-      (event.target && (event.target as Element).className === 'window') ||
-      (event.target as Element).className === 'window-closer'
-    ) {
-      this.infoWindowState = false;
-    }
+  public hideInfo() {
+    this.infoWindowState = false;
   }
 }
