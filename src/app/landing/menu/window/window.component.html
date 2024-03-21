@@ -5,7 +5,12 @@
       <h2 class="window-title">{{ info.title }}</h2>
       <span class="window-description">
         {{ info.description }}
-      </span>
+        <p>Начинки:</p>
+        <p *ngFor="let item of info.filling">
+          — {{ item.name }} ({{ item.description }})
+        </p>
+        <p><br /></p
+      ></span>
     </div>
     <img class="window-closer" src="../../../../assets/icon/closer.svg" />
   </div>

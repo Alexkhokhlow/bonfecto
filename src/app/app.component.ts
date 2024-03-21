@@ -1,9 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import SwiperCore from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 

@@ -1,21 +1,35 @@
-<form>
+<section class="order">
   <mat-form-field>
-    <mat-label>Input</mat-label>
+    <mat-label>Имя</mat-label>
     <input matInput />
   </mat-form-field>
-  <label for="fname">Имя</label><br />
-  <input type="text" id="fname" /><br />
-  <label for="date">Дата заказа</label><br />
-  <input type="date" id="date" /><br />
-  <label for="time">Время</label><br />
-  <input type="time" id="time" /><br />
-  <p>Выберете удобный для вас способ связи</p>
-  <label for="phone">Телефон</label><br />
-  <input type="text" id="phone" /><br />
-  <label for="phone">Примечание к заказу</label><br />
-  <input
-    type="text"
-    id="phone"
-    placeholder="Здесь напишите описание торта и ваши пожелания"
-  /><br />
-</form>
+  <mat-form-field class="example-full-width">
+    <mat-label>Дата</mat-label>
+    <input
+      disabled
+      matInput
+      [min]="minDate"
+      [max]="maxDate"
+      [matDatepickerFilter]="myFilter"
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Время</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let time of times" [value]="time">{{
+        time
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Вид десерта</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let desert of deserts" [value]="desert">{{
+        desert
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</section>
