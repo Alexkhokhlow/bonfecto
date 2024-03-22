@@ -37,12 +37,17 @@ export const productInfo: product[] = [
           'шоколадный бисквит, начинка солёная карамель с арахисом, шоколадный крем)',
       },
     ],
+    decor: [
+      { time: 3, description: 'Надпись' },
+      { time: 3, description: 'Рисунок' },
+      { time: 72, description: 'Печать' },
+    ],
   },
   {
     id: 1,
     title: 'Мини торт',
     description:
-      'Стоимость с надписью - 60р, с рисунком - 65р.\n Вес - 1,2 кг.\n Дизайн - рисунок/надпись. \n наборе идет ложечка, свечка и открытка.\n',
+      'Стоимость с надписью - 60р, с рисунком - 65р.\n Вес - 1,2 кг.\n Дизайн - рисунок/надпись.',
     imageNames: [
       'cakes/cake',
       'cakes/cake1',
@@ -71,6 +76,11 @@ export const productInfo: product[] = [
         name: 'ШОКОЛАД-ВИШНЯ',
         description: 'шоколадный бисквит, вишневая начинка, шоколадный крем',
       },
+    ],
+    decor: [
+      { time: 24, description: 'Надпись' },
+      { time: 24, description: 'Рисунок' },
+      { time: 72, description: 'Печать' },
     ],
   },
   {
@@ -111,6 +121,11 @@ export const productInfo: product[] = [
         description:
           'кокосовый бисквит, начинка шоколад-кокос, миндальный чизкейк, крем на основе маскарпоне',
       },
+    ],
+    decor: [
+      { time: 48, description: 'Надпись' },
+      { time: 48, description: 'Рисунок' },
+      { time: 72, description: 'Печать' },
     ],
   },
 ];
