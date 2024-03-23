@@ -17,3 +17,19 @@ export interface Decor {
   time: number;
   description: string;
 }
+
+export interface OrderTime {
+  id: number;
+  time: string;
+}
+
+export interface OrderForm {
+  name: string;
+  type: string;
+  filling: string;
+  decor: string;
+  date: string;
+  time: string;
+  communicationMethod: string;
+  communicationData: string;
+}

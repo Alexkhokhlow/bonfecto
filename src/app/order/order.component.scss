@@ -3,3 +3,80 @@
   flex-direction: column;
   align-items: center;
 }
+
+.notes {
+  min-height: 300px;
+}
+
+.progress {
+  width: 50px;
+}
+
+.mat-input-element {
+  font-size: medium;
+  font-weight: 200;
+}
+
+#fileInput {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.mat-toolbar-single-row {
+  height: auto !important;
+  background: transparent;
+  padding: 0;
+}
+
+.mat-toolbar-single-row button {
+  width: 100px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.message {
+  background-color: #ddd;
+  padding: 15px;
+  color: #333;
+  border: #aaa solid 1px;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    position: relative;
+
+    &_img {
+      max-width: 200px;
+      vertical-align: middle;
+      margin-top: 10px;
+    }
+
+    &_closer {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: -4px;
+      right: -18px;
+    }
+  }
+}
+
+.list-card {
+  margin-top: 20px;
+}
+
+.list-item {
+  margin-bottom: 20px;
+}
