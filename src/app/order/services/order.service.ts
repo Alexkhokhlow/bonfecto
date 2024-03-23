@@ -36,14 +36,15 @@ export class OrderService {
     this.unavailableDate = unavailableDate;
     this.communicationMethod = communicationMethod;
     this.orderForm = {
-      name: '',
-      type: '',
-      filling: '',
-      decor: '',
-      date: '',
-      time: '',
-      communicationMethod: '',
-      communicationData: '',
+      name: 'das',
+      type: 'das',
+      filling: 'das',
+      decor: 'das',
+      date: 'das',
+      time: 'das',
+      communicationMethod: 'das',
+      communicationData: 'das',
+      notes: 'aaa',
     };
   }
 
@@ -53,7 +54,9 @@ export class OrderService {
     this.orderForm.date = '';
     this.orderForm.time = '';
     this.minOrderDate = new Date();
-    this.selectProduct = this.products.find((item) => item.id === event.value)!;
+    this.selectProduct = this.products.find(
+      (item) => item.title === event.value
+    )!;
   }
 
   changeFilling() {
@@ -121,5 +124,9 @@ export class OrderService {
       date1.getDate() === date2.getDate() &&
       date1.getMonth() === date2.getMonth()
     );
+  }
+
+  Submit() {
+    console.log(this.orderForm);
   }
 }

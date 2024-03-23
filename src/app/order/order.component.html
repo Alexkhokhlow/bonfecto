@@ -1,6 +1,7 @@
-<section>
-  <form class="order" (ngSubmit)="Submit()">
-    <mat-form-field>
+<section class="order">
+  <h1>Информация о заказе</h1>
+  <form class="order__form" (ngSubmit)="orderService.Submit()">
+    <mat-form-field class="order__form_field">
       <mat-label>Вид десерта</mat-label>
       <mat-select
         [(ngModel)]="orderService.orderForm.type"
@@ -9,13 +10,13 @@
       >
         <mat-option
           *ngFor="let desert of orderService.products"
-          [value]="desert.id"
+          [value]="desert.title"
           >{{ desert.title }}</mat-option
         >
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="order__form_field">
       <mat-label>Начинка</mat-label>
       <mat-select
         [(ngModel)]="orderService.orderForm.filling"
@@ -29,7 +30,8 @@
         >
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+
+    <mat-form-field class="order__form_field">
       <mat-label>Декор</mat-label>
       <mat-select
         [(ngModel)]="orderService.orderForm.decor"
@@ -38,32 +40,34 @@
       >
         <mat-option
           *ngFor="let decor of orderService.selectProduct.decor"
-          [value]="decor.time"
+          [value]="decor.description"
           >{{ decor.description }}</mat-option
         >
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+
+    <mat-form-field class="order__form_field" (click)="picker.open()">
       <mat-label>Дата</mat-label>
       <input
-        disabled
         matInput
         [min]="orderService.minOrderDate"
         [max]="orderService.maxOrderDate"
         [matDatepickerFilter]="orderService.myFilter"
         [matDatepicker]="picker"
         [(ngModel)]="orderService.orderForm.date"
-        name="name"
+        name="date"
         (dateInput)="orderService.changeDate($event)"
+        readonly
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker
         [startAt]="orderService.minOrderDate"
         #picker
-        disabled="false"
+        touchUi="true"
       ></mat-datepicker>
     </mat-form-field>
-    <mat-form-field>
+
+    <mat-form-field class="order__form_field">
       <mat-label>Время</mat-label>
       <mat-select [(ngModel)]="orderService.orderForm.time" name="time">
         <mat-option
@@ -74,16 +78,21 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field [(ngModel)]="orderService.orderForm.name" name="name">
+    <mat-form-field class="order__form_field">
       <mat-label>Имя</mat-label>
-      <input matInput type="text" />
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="orderService.orderForm.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="order__form_field">
       <mat-label>Способ связи</mat-label>
       <mat-select
         [(ngModel)]="orderService.orderForm.communicationMethod"
-        name="cm"
+        name="communicationMethod"
         (selectionChange)="selectCommunicationType($event)"
       >
         <mat-option
@@ -96,38 +105,40 @@
 
     <mat-form-field
       *ngIf="communicationType.title"
-      [(ngModel)]="orderService.orderForm.communicationData"
-      name="communicationData"
       [floatLabel]="'always'"
+      class="order__form_field"
     >
       <mat-label>{{ communicationType.title }}</mat-label>
-      <input matInput name="communicationData" type="text" />
+      <input
+        matInput
+        [(ngModel)]="orderService.orderForm.communicationData"
+        [ngModelOptions]="{ standalone: true }"
+        type="text"
+      />
       <span matTextPrefix>{{ communicationType.prefix }}</span>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="order__form_field">
       <mat-label>Примечание</mat-label>
       <textarea
+        [(ngModel)]="orderService.orderForm.notes"
+        [ngModelOptions]="{ standalone: true }"
         class="notes"
         matInput
         placeholder="Опишите здесь ваш декор или любые другие пожелания"
       ></textarea>
     </mat-form-field>
 
-    <mat-form-field>
-      <div>
-        <mat-toolbar>
-          <input matInput [value]="'Выберете фото'" />
-          <input
-            type="file"
-            id="fileInput"
-            name="fileInput"
-            accept="image/*"
-            multiple
-            (change)="selectFiles($event)"
-          />
-        </mat-toolbar>
-      </div>
+    <mat-form-field class="order__form_field">
+      <input matInput [value]="'Добавить фотографии'" readonly />
+      <input
+        type="file"
+        id="fileInput"
+        name="fileInput"
+        accept="image/*"
+        multiple
+        (change)="selectFiles($event)"
+      />
     </mat-form-field>
 
     <div class="preview">
@@ -141,8 +152,8 @@
       </div>
     </div>
 
-    <mat-card-actions>
-      <button mat-raised-button type="submit">Заказать</button>
+    <mat-card-actions class="order__button">
+      <button mat-raised-button type="submit" class="">Заказать</button>
     </mat-card-actions>
   </form>
 </section>

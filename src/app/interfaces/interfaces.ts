@@ -32,4 +32,5 @@ export interface OrderForm {
   time: string;
   communicationMethod: string;
   communicationData: string;
+  notes: string;
 }

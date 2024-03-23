@@ -77,8 +77,4 @@ export class OrderComponent {
       }
     }
   }
-
-  Submit() {
-    console.log('1');
-  }
 }
