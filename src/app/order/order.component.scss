@@ -2,6 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_field {
+      width: 80vw;
+    }
+  }
+
+  &__button {
+    margin-bottom: 5vh;
+  }
 }
 
 .notes {
@@ -28,31 +42,14 @@
 }
 
 .mat-toolbar-single-row {
-  height: auto !important;
+  height: auto;
   background: transparent;
   padding: 0;
 }
 
-.mat-toolbar-single-row button {
-  width: 100px;
-}
-
-.mat-form-field {
-  width: 100%;
-}
-
-.message {
-  background-color: #ddd;
-  padding: 15px;
-  color: #333;
-  border: #aaa solid 1px;
-  border-radius: 4px;
-  margin: 15px 0;
-}
-
 .preview {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 
   &__container {
     position: relative;
@@ -60,23 +57,15 @@
     &_img {
       max-width: 200px;
       vertical-align: middle;
-      margin-top: 10px;
+      margin: 10px;
     }
 
     &_closer {
       width: 25px;
       height: 25px;
       position: absolute;
-      top: -4px;
-      right: -18px;
+      top: 0px;
+      right: -7px;
     }
   }
-}
-
-.list-card {
-  margin-top: 20px;
-}
-
-.list-item {
-  margin-bottom: 20px;
 }

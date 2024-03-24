@@ -34,6 +34,11 @@ export class OrderComponent {
       for (let i = 0; i < numberOfFiles; i++) {
         const reader = new FileReader();
         reader.onload = (e: any) => {
+          this.orderService.previews.push({
+            id: this.previews.length,
+            file: e.target.result,
+          });
+          console.log(e.target.result);
           this.previews.push({
             id: this.previews.length,
             file: e.target.result,
@@ -76,9 +81,5 @@ export class OrderComponent {
         break;
       }
     }
-  }
-
-  Submit() {
-    console.log('1');
   }
 }
