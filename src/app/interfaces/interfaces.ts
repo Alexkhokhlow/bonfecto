@@ -24,12 +24,12 @@ export interface OrderTime {
 }
 
 export interface OrderForm {
-  name: string;
   type: string;
   filling: string;
   decor: string;
   date: string;
   time: string;
+  name: string;
   communicationMethod: string;
   communicationData: string;
   notes: string;

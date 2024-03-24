@@ -40,7 +40,7 @@ export const productInfo: product[] = [
     decor: [
       { time: 3, description: 'Надпись' },
       { time: 3, description: 'Рисунок' },
-      { time: 72, description: 'Печать' },
+      { time: 96, description: 'Печать' },
     ],
   },
   {
@@ -78,9 +78,9 @@ export const productInfo: product[] = [
       },
     ],
     decor: [
-      { time: 24, description: 'Надпись' },
-      { time: 24, description: 'Рисунок' },
-      { time: 72, description: 'Печать' },
+      { time: 48, description: 'Надпись' },
+      { time: 48, description: 'Рисунок' },
+      { time: 96, description: 'Печать' },
     ],
   },
   {
@@ -125,7 +125,7 @@ export const productInfo: product[] = [
     decor: [
       { time: 48, description: 'Надпись' },
       { time: 48, description: 'Рисунок' },
-      { time: 72, description: 'Печать' },
+      { time: 96, description: 'Печать' },
     ],
   },
 ];

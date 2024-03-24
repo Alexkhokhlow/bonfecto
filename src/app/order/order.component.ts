@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import {
   DateFilterFn,
   MatDatepickerInputEvent,
@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class OrderComponent {
   public communicationType: { title: string; prefix: string };
@@ -38,7 +39,7 @@ export class OrderComponent {
             id: this.previews.length,
             file: e.target.result,
           });
-          console.log(e.target.result);
+
           this.previews.push({
             id: this.previews.length,
             file: e.target.result,

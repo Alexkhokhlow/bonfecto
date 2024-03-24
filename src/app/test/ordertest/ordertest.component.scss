@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin: 10px;
+}
+
+.mat-input-element {
+  font-size: medium;
+  font-weight: 200;
+}
+
+#fileInput {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.mat-toolbar-single-row {
+  height: auto;
+  background: transparent;
+  padding: 0;
+}
