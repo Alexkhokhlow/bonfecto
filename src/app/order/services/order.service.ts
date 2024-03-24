@@ -9,6 +9,7 @@ import {
   DateFilterFn,
   MatDatepickerInputEvent,
 } from '@angular/material/datepicker';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 
 @Injectable({
   providedIn: SharedModule,
@@ -22,8 +23,10 @@ export class OrderService {
   public unavailableDate: Date[];
   public communicationMethod: string[];
   public orderForm: OrderForm;
+  public previews: { id: number; file: string }[];
 
   constructor() {
+    this.previews = [];
     this.products = productInfo;
     this.selectProduct = this.products[0];
     this.availableTimes = orderTimes;
@@ -36,15 +39,15 @@ export class OrderService {
     this.unavailableDate = unavailableDate;
     this.communicationMethod = communicationMethod;
     this.orderForm = {
-      name: 'das',
-      type: 'das',
-      filling: 'das',
-      decor: 'das',
-      date: 'das',
-      time: 'das',
-      communicationMethod: 'das',
-      communicationData: 'das',
-      notes: 'aaa',
+      name: '',
+      type: '',
+      filling: '',
+      decor: '',
+      date: '',
+      time: '',
+      communicationMethod: '',
+      communicationData: '',
+      notes: '',
     };
   }
 
@@ -127,6 +130,52 @@ export class OrderService {
   }
 
   Submit() {
-    console.log(this.orderForm);
+    emailjs.init('6DAcRMurww4ZZnP1_');
+    emailjs
+      .send('service_fcffgmi', 'template_fjknmc4', {
+        name: this.orderForm.name,
+        type: this.orderForm.type,
+        filling: this.orderForm.filling,
+        decor: this.orderForm.decor,
+        date: this.modificationDate(this.orderForm.date),
+        time: this.orderForm.time,
+        communication: this.modificationCallData(
+          this.orderForm.communicationMethod,
+          this.orderForm.communicationData
+        ),
+        notes: this.orderForm.notes,
+        img: this.previews[0].file,
+      })
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        }
+      );
+  }
+
+  modificationDate(date: string) {
+    const newDate = new Date(date);
+    return `${newDate.getDate()}/${newDate.getMonth() + 1}`;
+  }
+
+  modificationCallData(method: string, data: string) {
+    let result = '';
+    switch (method) {
+      case 'Telegram': {
+        result = `t.me/${data}`;
+        break;
+      }
+      case 'Instagram': {
+        result = `instagram.com/${data}`;
+        break;
+      }
+      default: {
+        result = `+375 ${data}`;
+      }
+    }
+    return result;
   }
 }
