@@ -101,7 +101,7 @@ export class OrderService {
   }
 
   myFilter: DateFilterFn<Date | null> = (date: Date | null) => {
-    return date && date!.getDay() <= 8
+    return date && date!.getDay() <= 6
       ? !this.unavailableDate.find((item) => this.checkDate(item, date))
       : false;
   };

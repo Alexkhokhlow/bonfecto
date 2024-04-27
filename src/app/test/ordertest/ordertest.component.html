@@ -1,0 +1,118 @@
+<form [formGroup]="form" class="form" (submit)="onSend()">
+  <mat-form-field>
+    <mat-label>Вид десерта</mat-label>
+    <mat-select
+      formControlName="type"
+      (selectionChange)="selectProduct($event)"
+    >
+      <mat-option *ngFor="let item of products" [value]="item.title">
+        {{ item.title }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Начинка</mat-label>
+    <mat-select
+      formControlName="filling"
+      (selectionChange)="selectAvailableDecor()"
+    >
+      <mat-option
+        *ngFor="let item of selectedProduct.filling"
+        [value]="item.name"
+      >
+        {{ item.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Декор</mat-label>
+    <mat-select
+      formControlName="decor"
+      (selectionChange)="selectAvailableDate($event)"
+    >
+      <mat-option *ngFor="let item of selectedProduct.decor" [value]="item">
+        {{ item.description }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="order__form_field" (click)="picker.open()">
+    <mat-label>Дата</mat-label>
+    <input
+      matInput
+      [min]="minOrderDate"
+      [max]="maxOrderDate"
+      [matDatepickerFilter]="myFilter"
+      [matDatepicker]="picker"
+      formControlName="date"
+      name="date"
+      (dateInput)="selectAvailableTime($event)"
+      readonly
+    />
+    <mat-datepicker-toggle day matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker
+      [startAt]="minOrderDate"
+      #picker
+      touchUi="true"
+    ></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Время</mat-label>
+    <mat-select formControlName="time">
+      <mat-option *ngFor="let time of availableTimes" [value]="time.time">{{
+        time.time
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Имя</mat-label>
+    <input matInput type="text" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Способ связи</mat-label>
+    <mat-select
+      (selectionChange)="changeCommunicationDataInput($event)"
+      formControlName="communicationMethod"
+    >
+      <mat-option *ngFor="let name of communicationMethod" [value]="name">{{
+        name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'always'" class="order__form_field">
+    <mat-label>{{ communicationType.title }}</mat-label>
+    <input matInput type="text" formControlName="communicationData" />
+    <span matTextPrefix>{{ communicationType.prefix }}</span>
+  </mat-form-field>
+
+  <mat-form-field class="order__form_field">
+    <mat-label>Примечание</mat-label>
+    <textarea
+      class="notes"
+      matInput
+      placeholder="Опишите здесь ваш декор или любые другие пожелания"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [value]="'Добавить фотографии'" readonly />
+    <input
+      type="file"
+      id="fileInput"
+      name="fileInput"
+      accept="image/*"
+      multiple
+      (change)="onFileSelected($event)"
+    />
+  </mat-form-field>
+
+  <mat-card-actions class="order__button">
+    <button mat-raised-button type="submit">Заказать</button>
+  </mat-card-actions>
+</form>

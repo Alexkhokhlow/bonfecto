@@ -3,15 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'order',
+    path: 'landing',
     loadChildren: () =>
       import('./landing/landing.module').then((m) => m.LandingModule),
   },
   {
-    path: '',
+    path: 'test',
+    loadChildren: () =>
+      import('./test/ordertest/ordertest.module').then(
+        (m) => m.OrdertestModule
+      ),
+  },
+  {
+    path: 'order',
     loadChildren: () =>
       import('./order/order.module').then((m) => m.OrderModule),
   },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: '**', redirectTo: 'order' },
 ];
 
 @NgModule({

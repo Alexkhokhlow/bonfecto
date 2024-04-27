@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import SwiperCore from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper';
 
 @Component({
   selector: 'app-swiper',
@@ -7,4 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class SwiperComponent {
   @Input() images!: string[];
+
+  constructor() {
+    SwiperCore.use([Navigation, Pagination, Autoplay]);
+  }
 }
