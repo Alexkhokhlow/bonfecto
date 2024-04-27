@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./order/order.module').then((m) => m.OrderModule),
   },
-  { path: '', redirectTo: 'test', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', redirectTo: 'order' },
 ];
 
